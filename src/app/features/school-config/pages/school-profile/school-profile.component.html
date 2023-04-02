@@ -1,0 +1,62 @@
+<div class="card-header">
+    <div class="container">
+        <div class="school-cover"></div>
+        <!--  -->
+        <div class="school-avatar-with-actions">
+            <div class="card-row">
+
+                <div class="school-avatar-box">
+                    <div class="school-avatar">
+                        <img src="../../../../../assets/logo/logo.png" alt="">
+                    </div>
+                    <div (click)="fileInput.click()" class="change-file">
+                        <mat-icon class="mat-18">photo_camera</mat-icon>
+                    </div>
+                    <input #fileInput type="file" multiple accept='image/*' (change)="null"
+                        style="display:none;" />
+                </div>
+                <div style="width:168px"></div>
+                <div class="school-info-box">
+                    <h3 class="title">
+                        {{auth?.school?.name}}
+                    </h3>
+                    <p>
+                        {{auth?.school?.ID}}
+                    </p>
+                </div>
+
+                <div class="school-action-box">
+
+                    <div class="abs-action-btn">
+                        <button mat-button (click)="fileInput.click()" class="core-btn secondary">
+                            <mat-icon class="mat-18">photo_camera</mat-icon>
+                            <span>Add cover photo</span>
+                        </button>
+
+                        <input #fileInput2 type="file" multiple accept='image/*' (change)="null"
+                        style="display:none;" />
+                    </div>
+                    <button mat-button (click)="null" class="core-btn secondary">
+                        <mat-icon class="mat-18">edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="card-row border-top" style="margin-top: 16px;">
+            <nav mat-tab-nav-bar class="component-tab-nav-bar" [tabPanel]="tabPanel">
+                <a mat-tab-link *ngFor="let link of tabs" [routerLink]="link.route" routerLinkActive #rla="routerLinkActive"
+                    [active]="rla.isActive"> {{link?.name}}
+                </a>
+            </nav>
+            <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+        </div>
+   
+    </div>
+</div>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

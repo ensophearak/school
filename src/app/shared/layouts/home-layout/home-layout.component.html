@@ -1,0 +1,11 @@
+
+<div class="p-wrapper home-school-wrapper" *mobxAutorun>
+    <app-header></app-header>
+    <main class="main" role="main" style="max-height: calc(100vh - 68px);">
+        <router-outlet *ngIf="auth?.profile | validSchool:auth?.school"></router-outlet>
+        <app-school-disabled *ngIf="!(auth?.profile | validSchool:auth?.school) && !auth?.loading"></app-school-disabled>
+    </main>
+    <app-loader *ngIf="auth?.loading"></app-loader>
+    <!-- <app-loader></app-loader> -->
+
+</div>

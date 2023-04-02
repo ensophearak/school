@@ -22,7 +22,16 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "strictNullChecks": false, //added
+    "skipLibCheck": true, //added
+    "noImplicitAny": false, //added
+    // "allowSyntheticDefaultImports": true,
+    "paths": {
+      "path": [
+        "./node_modules/path-browserify"
+      ]
+    }, //added
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,32 @@
+
+
+<div class="form-dialog-wrapper">
+    <div class="form-dialog-header">
+        <h2 class="form-dialog-header-title">
+            
+        </h2>
+        <div class="flex-1"></div>
+        <a mat-dialog-close class="close-dialog" (click)="dialogRef.close('no')">
+            <i class="material-icons">&#xE14C;</i>
+        </a>
+    </div>
+
+    <mat-dialog-content class="form-dialog-content">
+      
+
+        <div class="dialog-listing-container" *mobxAutorun>
+            <div class="dialog-listing-content">
+                <div class="room-lists" *ngFor="let item of roomStore?.data">
+                    {{item?.name}}
+                </div>
+            </div>
+        </div>
+        <!-- <app-loader *ngIf="loading"></app-loader> -->
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="form-dialog-actions">
+        <!-- <button mat-button mat-dialog-close class="core-btn secondary">Cancel</button> -->
+    </mat-dialog-actions>
+
+</div>

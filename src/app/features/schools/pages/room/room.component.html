@@ -1,0 +1,82 @@
+<div class="info-container">
+    <div class="row-title">
+        <div class="title">
+            Room information
+        </div>
+        <div class="flex-1"></div>
+       
+        <div class="list-item-action">
+            <div class="dp-action-menu"  [matMenuTriggerFor]="menu" aria-label="Action menu">
+                <mat-icon>more_vert</mat-icon>
+            </div>
+            <mat-menu #menu="matMenu" >
+                <button mat-menu-item (click)="edit(store?.selectedRoom)">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </div>
+
+     
+
+    </div>
+    <div class="row-divider"></div>
+    <div class="detail-listing">
+        <div class="detail-listing-row">
+            <table class="table-listing" *ngIf="store?.selectedRoom">
+                <tr>
+                    <td class="f-col">Name (Khmer)</td>
+                    <td>{{store?.selectedRoom?.name}}</td>
+                </tr>
+                <tr>
+                    <td class="f-col">Name (English)</td>
+                    <td>{{store?.selectedRoom?.nameEn}}</td>
+                </tr>
+
+                <tr>
+                    <td class="f-col">Type</td>
+                    <td>{{store?.selectedRoom?.roomType?.text}}</td>
+                </tr>
+
+                <tr>
+                    <td class="f-col">Floor</td>
+                    <td>{{store?.selectedRoom?.floor?.text}}</td>
+                </tr>
+
+                <tr>
+                    <td class="f-col">Min Person</td>
+                    <td>{{store?.selectedRoom?.minPerson}}</td>
+                </tr>
+
+                <tr>
+                    <td class="f-col">Max Person</td>
+                    <td>{{store?.selectedRoom?.maxPerson}}</td>
+                </tr>
+            </table>
+            <div class="row-divider"></div>
+            <table class="table-listing" *ngIf="store?.selectedRoom">
+                <tr>
+                    <td class="f-col">Building</td>
+                    <td>{{store?.selectedRoom?.schoolKey | subCollectionDoc:store?.selectedRoom?.buildingKey:'building':'name' | async}}</td>
+                </tr>
+
+                <tr>
+                    <td class="f-col">Campus</td>
+                    <td>{{store?.selectedRoom?.schoolKey | subCollectionDoc:store?.selectedRoom?.campusKey:'campus':'name' | async}}</td>
+                </tr>
+
+                <tr>
+                    <td class="f-col">School</td>
+                    <td>{{store?.selectedRoom?.schoolKey | collectionDoc:'schools':'name' | async}}</td>
+                </tr>
+               
+            </table>
+
+        </div>
+    </div>
+
+</div>

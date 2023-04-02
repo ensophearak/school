@@ -1,13 +1,131 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Spro</title>
+  <title>School</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1976d2">
+
+
+  <meta property="fb:app_id" content="302506470746613">
+  <meta property="og:url" content="https://espr-news.web.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="World Real Estate">
+  <meta property="og:description" content="Buy and sell reale state">
+  <meta property="og:image" content="http://www.dosgamesworld.com/assets/images/pop.png">
+  <meta property="og:image:type" content="image/jpg">
+  <meta name="Description" content="Buy and sell reale state">
+
 </head>
+
 <body>
-  <app-root></app-root>
+  <app-core>
+    <span class="loader"></span>
+    <style>
+      .loader {
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+        position: relative;
+        transform: rotate(45deg);
+      }
+
+      .loader::before {
+        content: '';
+        box-sizing: border-box;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 0;
+        top: -24px;
+        animation: animloader 4s ease infinite;
+      }
+
+      .loader::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        background: var(--color-primary);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        animation: animloader2 2s ease infinite;
+      }
+
+      @keyframes animloader {
+        0% {
+          box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
+        }
+
+        12% {
+          box-shadow: 0 24px var(--background-secondary), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
+        }
+
+        25% {
+          box-shadow: 0 24px var(--background-secondary), 24px 24px var(--background-secondary), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
+        }
+
+        37% {
+          box-shadow: 0 24px var(--background-secondary), 24px 24px var(--background-secondary), 24px 48px var(--background-secondary), 0px 48px rgba(255, 255, 255, 0);
+        }
+
+        50% {
+          box-shadow: 0 24px var(--background-secondary), 24px 24px var(--background-secondary), 24px 48px var(--background-secondary), 0px 48px var(--background-secondary);
+        }
+
+        62% {
+          box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px var(--background-secondary), 24px 48px var(--background-secondary), 0px 48px var(--background-secondary);
+        }
+
+        75% {
+          box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px var(--background-secondary), 0px 48px var(--background-secondary);
+        }
+
+        87% {
+          box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px var(--background-secondary);
+        }
+
+        100% {
+          box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
+        }
+      }
+
+      @keyframes animloader2 {
+        0% {
+          transform: translate(0, 0) rotateX(0) rotateY(0);
+        }
+
+        25% {
+          transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+        }
+
+        50% {
+          transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+        }
+
+        75% {
+          transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+        }
+
+        100% {
+          transform: translate(0, 0) rotateX(0) rotateY(360deg);
+        }
+      }
+    </style>
+  </app-core>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
+
 </html>

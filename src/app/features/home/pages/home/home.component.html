@@ -1,0 +1,110 @@
+<div class="home-page-container" *mobxAutorun>
+
+    <div class="app-heading-title">
+        <h3>Feature applications</h3>
+    </div>
+    <div class="app-list-wrapper">
+        <div class="app-list-item" (click)="navigateApp('hr')">
+            <div class="app-list-item-content">
+                <div class="icon-bx">
+                    <!-- <img src="../../../../../assets/images/hr.svg" alt="HR"> -->
+                    <ng-lottie [options]="options"></ng-lottie>
+                </div>
+                <h3 class="app-title">Human Resource</h3>
+                <p class="app-desc">
+                    Managing recruitment, onboarding, employee training, talent retention, and developing organizational
+                    policies and more.
+                </p>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+
+        <div class="app-list-item" (click)="navigateApp('scholarship')">
+            <div class="app-list-item-content">
+                <div class="icon-bx img-bx" [style.background-image]="'url(../../../../../assets/images/sc.svg)'"></div>
+                <h3 class="app-title">Scholarships</h3>
+                <p class="app-desc">
+                    Managing the application process, including reviewing applications, determining eligibility, and
+                    awarding scholarships and more.
+                </p>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+        <div class="app-list-item" (click)="navigateApp('class-manager')">
+            <div class="app-list-item-content">
+                <div class="icon-bx img-bx" [style.background-image]="'url(../../../../../assets/images/cm.svg)'"></div>
+                <h3 class="app-title">Class Manager</h3>
+                <p class="app-desc">
+                    Managing the day-to-day operations of a classroom. This includes preparing lesson plans, setting up
+                    learning environments, and monitoring student behavior and more.
+                </p>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+
+
+        <div class="app-list-item" (click)="navigateApp('registrar')">
+            <div class="app-list-item-content">
+                <div class="icon-bx img-bx" [style.background-image]="'url(../../../../../assets/images/rgs.svg)'">
+                </div>
+                <h3 class="app-title">Registrar Office</h3>
+                <p class="app-desc">
+                    Maintaining and protecting the official academic record for every student at Georgia Tech. This
+                    includes facilitating registration, providing transcripts, and more.
+                </p>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+
+
+        <div class="app-list-item" (click)="navigateApp('registrar')">
+            <div class="app-list-item-content">
+                <div class="icon-bx img-bx" [style.background-image]="'url(../../../../../assets/images/rgs.svg)'">
+                </div>
+                <h3 class="app-title">Payroll</h3>
+                <p class="app-desc">
+                    Maintaining the process of paying employees for their services and calculating taxes and other deductions from their wages and more.
+                </p>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+
+        <div class="app-list-item" (click)="navigateApp('registrar')">
+            <div class="app-list-item-content">
+                <div class="icon-bx img-bx" [style.background-image]="'url(../../../../../assets/images/rgs.svg)'">
+                </div>
+                <h3 class="app-title">Cashier</h3>
+                <p class="app-desc">
+                    Maintaining the process of paying employees for their services and calculating taxes and other deductions from their wages and more.
+                </p>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+
+        
+
+    </div>
+
+
+    <div class="app-heading-title">
+        <h3>Manage your school profile?</h3>
+    </div>
+    <div class="app-list-wrapper-row">
+        <div class="app-list-item"  (click)="navigateApp('school-config/profile')" >
+            <div class="app-list-item-content">
+                <div class="icon-bx">
+                    <ng-lottie [options]="optionsBuilding"></ng-lottie>
+                </div>
+                <div class="flex-1">
+                    <h3 class="app-title">Go school dashboard</h3>
+                    <p class="app-desc">
+                        Managing your school profile, programs, portfolio and more.
+                    </p>
+                </div>
+                <mat-icon style="margin-right: 8px; color: #555555;" class="mat-18">east</mat-icon>
+            </div>
+            <div class="app-hover-overlay"></div>
+        </div>
+    </div>
+
+</div>

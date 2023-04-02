@@ -1,0 +1,34 @@
+.form-group{
+    display: grid;
+    grid-gap: 16px;
+    &.grid-two{
+        grid-template-columns: 1fr 1fr;
+    }
+    &.grid-three{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .mat-mdc-form-field{
+        flex: 1;
+    }
+}
+
+
+.form-dialog-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .form-dialog-header-title{
+        font-size: 18px;
+    }
+    .form-dialog-content{
+        flex: 1;
+    }
+    .close-dialog{
+        cursor: pointer;
+    }
+    .form-dialog-header{
+        display: flex;
+        align-items: center;
+        padding: 16px 24px;
+    }
+}

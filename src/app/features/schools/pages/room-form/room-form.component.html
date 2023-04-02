@@ -1,0 +1,125 @@
+<form class="form-dialog-wrapper" [formGroup]="form">
+    <div class="form-dialog-header">
+        <h2 class="form-dialog-header-title">{{title}}</h2>
+        <div class="flex-1"></div>
+        <a mat-dialog-close class="close-dialog" (click)="dialogRef.close('no')">
+            <i class="material-icons">&#xE14C;</i>
+        </a>
+    </div>
+
+    <mat-dialog-content class="form-dialog-content">
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Name (khmer)
+                </mat-label>
+
+                <input matInput placeholder="" formControlName="name" type="text" required autocomplete="off">
+                <mat-error *ngIf="form.controls['name'].hasError('pattern')">
+                    Room name can only contain letters, numbers, spaces, and these characters: - ! ' "
+                </mat-error>
+                <mat-error *ngIf="form.controls['name'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+
+                <mat-error *ngIf="form.controls['name'].hasError('minlength')">
+                    Room name must be at least 4 characters long
+                </mat-error>
+
+            </mat-form-field>
+
+
+
+        </div>
+        <div class="form-group">
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Name (English)
+                </mat-label>
+
+                <input matInput placeholder="" formControlName="nameEn" type="text" required autocomplete="off">
+                <mat-error *ngIf="form.controls['nameEn'].hasError('pattern')">
+                    Room name can only contain letters, numbers, spaces, and these characters: - ! ' "
+                </mat-error>
+                <mat-error *ngIf="form.controls['nameEn'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+
+                <mat-error *ngIf="form.controls['nameEn'].hasError('minlength')">
+                    Room name must be at least 4 characters long
+                </mat-error>
+
+            </mat-form-field>
+
+        </div>
+
+        <div class="form-group grid-two">
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Room Type
+                </mat-label>
+                <mat-select formControlName="roomType" [compareWith]="compareObjects">
+                    <mat-option *ngFor="let item of roomTypesData" [value]="item">
+                      {{item.text}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['roomType'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Floor
+                </mat-label>
+                <mat-select formControlName="floor" [compareWith]="compareObjects">
+                    <mat-option *ngFor="let item of floorData" [value]="item">
+                      {{item.text}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['floor'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+
+
+        <div class="form-group grid-two">
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Min Person
+                </mat-label>
+                <input matInput placeholder="" formControlName="minPerson" type="number" autocomplete="off">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Max Person
+                </mat-label>
+                <input matInput placeholder="" formControlName="maxPerson" type="number" autocomplete="off">
+
+            </mat-form-field>
+
+        </div>
+
+
+        <app-loader *ngIf="loading"></app-loader>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="form-dialog-actions">
+        <button mat-button mat-dialog-close class="core-btn secondary">Cancel</button>
+        <button mat-button class="core-btn" [disabled]="store?.process || !form.valid || loading"
+            (click)="onSave()">
+            <mat-spinner [diameter]="20" *ngIf="store?.process"></mat-spinner>
+            Save
+        </button>
+    </mat-dialog-actions>
+
+</form>

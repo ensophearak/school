@@ -1,0 +1,63 @@
+.nav-btn{
+    background-color:#e4e6eb !important;
+}
+
+.core-btn{
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-primary) !important;
+  min-height: 36px;
+  border-radius: 30px !important;
+  transition: all .3s;
+  padding: 0 16px !important;
+  white-space: nowrap;
+  min-width: 90px !important;
+  &.secondary{
+    background-color: var(--secondary-button-background) !important;
+    color: var(--secondary-button-text) !important;
+  }
+  &.delete-btn{
+    background-color: var(--error-default) !important;
+    color: var(--color-white) !important;
+  }
+  &.mdc-button .mdc-button__label {
+    position: initial;
+    display: flex;
+    align-items: center;
+  }
+  .mat-mdc-progress-spinner{
+    position: absolute;
+    left: 8px;
+  }
+  &:hover{
+    opacity: 0.8;
+  }
+  &[disabled]{
+    opacity: 0.5;
+  }
+
+}
+.nav-btn{
+  border: none;
+  border-radius: 100%;
+  height: 38px;
+  width: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-action{
+  margin: 16px;
+}
+.language-btn{
+  border-radius: 30px !important;
+  padding: 8px 16px !important;
+  margin:4px;
+  &:hover{
+    opacity: 0.5;
+  }
+  &.active{
+    background-color: #e7f7ff;
+  }
+}

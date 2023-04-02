@@ -1,0 +1,48 @@
+.auth-container-wrapper,
+app-login {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.login-inner-form {
+  max-width: 350px;
+  color: #717171;
+  width: 100%;
+  text-align: center;
+  background-color: var(--background-white);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+    padding: 24px;
+  .p-fluid .p-inputtext {
+    height: 45px;
+    border-radius: 50px;
+    // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .06);
+    padding: 10px 20px;
+  }
+  .p-field {
+    padding-bottom: 25px;
+    position: relative;
+  }
+
+  .p-invalid {
+    position: absolute;
+    bottom: 2px;
+    display: block;
+    left: 24px;
+  }
+}
+.form-group-inline {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.ms-error {
+  color: #73000c;
+  margin-bottom: 24px;
+  transition: all 0.5s ease-in-out;
+}

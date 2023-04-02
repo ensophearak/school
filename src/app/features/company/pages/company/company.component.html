@@ -1,0 +1,45 @@
+<div class="page-wrapper">
+    <component-page-header [title]="'Company'" [process]="false" (onClick)="addNew()"></component-page-header>
+    <nav mat-tab-nav-bar class="component-tab-nav-bar" [tabPanel]="tabPanel">
+        <a mat-tab-link *ngFor="let link of tabs" [routerLink]="link.route" routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"> {{link?.name}}
+        </a>
+    </nav>
+    <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+    <div class="page-container">
+        <div class="page-action-bar">
+            <div style="flex: 1;"></div>
+            <b>Page: {{store?.pagination_clicked_count+1}}</b> - <b> {{store?.totalPage}} of {{store?.totalCount}}</b>
+            <button mat-icon-button (click)="store?.prevPage()"
+                [disabled]="store?.disable_prev || !(store?.pagination_clicked_count>0)">
+                <mat-icon class="mat-18">chevron_left</mat-icon>
+            </button>
+            <button mat-icon-button (click)="store?.nextPage()" [disabled]="store?.disable_next">
+                <mat-icon class="mat-18">chevron_right</mat-icon>
+            </button>
+        </div>
+
+        <div class="scroll-table-wrapper">
+            <table class="table-wrapper" *ngIf="store?.tableData?.length > 0">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of store?.tableData; let i=index; trackBy: loader?.trackByIdx">
+                        <td>{{item?.index}}</td>
+                        <td>{{item?.name}}</td>
+                        <td>{{item?.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <app-loader *ngIf="loader?.getLoading()"></app-loader>
+    </div>
+</div>

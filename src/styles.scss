@@ -1,1 +1,273 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+:root,
+.__core-light-mode {
+  --background-default: #ffffff;
+  --background-primary: #f1f2f5;
+  --background-secondary: #a3b9cc;
+  --background-tertiary: #5c7d99;
+  --background-light: #ffffff;
+  --background-white: #ffffff;
+
+  /* Colors */
+  --foreground-default: #08090a;
+  --foreground-secondary: #41474d;
+  --foreground-tertiary: #797c80;
+  --foreground-quaternary: #f4faff;
+  --foreground-light: #41474d;
+
+  --primary-default: #5dfdcb;
+  --primary-dark: #24b286;
+  --primary-light: #b2ffe7;
+
+  --error-default: #ef3e36;
+  --error-dark: #800600;
+  --error-light: #ffcecc;
+
+  --color-white: #ffffff;
+  --color-dark: #1f1f1f;
+  --color-dark-light: #4d4d4d;
+  --color-primary: hsl(214, 89%, 52%);
+  --color-primary-light: #80a8ff;
+  --color-default: #ebebeb;
+  --color-primary-dark: rgb(36, 62, 109);
+  --color-primary-dark-light: #4d4d4d;
+
+  --text-color-default: #050505;
+  --text-color-active: #296dff;
+  --text-color-hover: #296dff;
+  --text-color-secondary: #65676b;
+
+  --accent: hsl(214, 89%, 52%);
+  --color-primary-bg: rgb(232,240,254);
+
+  --secondary-button-background: #E4E6EB;
+  --secondary-button-text: #050505;
+
+  --always-white: #FFFFFF;
+  --always-black: black;
+  --always-dark-gradient: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+
+  /* Shadows */
+  --background-tertiary-shadow: 0 1px 3px 0 rgba(92, 125, 153, 0.5);
+
+  --shadow-1: rgba(0, 0, 0, 0.1);
+  --shadow-2: rgba(0, 0, 0, 0.2);
+  --shadow-5: rgba(0, 0, 0, 0.5);
+  --shadow-8: rgba(0, 0, 0, 0.8);
+  --shadow-inset: rgba(255, 255, 255, 0.5);
+  --shadow-elevated: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-persistent: 0px 0px 12px rgba(52, 72, 84, 0.05);
+
+  
+
+  --canvas-background-color: #fafafa;
+  --canvas-color: #333333;
+  --canvas-border-color: #cccccc;
+  --canvas-gutter-background-color: #e0e0e0;
+  --canvas-gutter-color: #999999;
+
+  --panel-background-color: #f0f0f0;
+  --panel-color: #161616;
+  --panel-input-background-color: #ffffff;
+  --panel-input-color: #333333;
+  --panel-button-background-color: #e0e0e0;
+  --panel-button-color: #121212;
+  --panel-button-border-color: #666666;
+
+  --disabled-button-background: #e4e6eb;
+  --disabled-icon: #bcc0c4;
+  --disabled-text: #bcc0c4;
+  --divider: #ced0d4;
+  --event-date: #f3425f;
+
+  --border-color: rgb(100 121 143 / 12%);
+
+  // font-size
+  --font-size-300: 0.75rem; /* 12px */
+  --font-size-400: 1rem; /* 16px, base */
+  --font-size-500: 1.25rem; /* 20px */
+  --font-size-600: 1.5rem; /* 24px */
+  --font-size-700: 1.75rem; /* 28px */
+  --font-size-800: 2rem; /* 32px */
+  --font-size-900: 2.25rem; /* 36px */
+
+  //table
+
+  --th-bg-color: #fafafa;
+
+  //font-family
+
+  //font-family
+  --font-family-default: Roboto, "Helvetica Neue", sans-serif, "Battambang",
+    cursive;
+  --font-family-title: Roboto, "Helvetica Neue", sans-serif, "Moul", cursive;
+
+  //
+  --media-hover: rgba(68, 73, 80, 0.15);
+  --media-inner-border: rgba(0, 0, 0, 0.1);
+  --media-outer-border: #FFFFFF;
+  --media-pressed: rgba(68, 73, 80, 0.35);
+
+  --hover-overlay: rgba(0, 0, 0, 0.05);
+
+  --fds-animation-fade-in: cubic-bezier(0, 0, 1, 1);
+  --fds-animation-fade-out: cubic-bezier(0, 0, 1, 1);
+  --fds-duration-extra-extra-short-in: 100ms;
+  --fds-duration-extra-extra-short-out: 100ms;
+
+}
+// __core-dark-mode:root,
+// .__core-dark-mode {
+// }
+
+
+
+@import "./styles/fonts.scss";
+@import "./styles/custom-md.scss";
+@import "./styles/auth.scss";
+@import "./styles/form.scss";
+@import "./styles/header.scss";
+@import "./styles/sidebar.scss";
+@import "./styles/buttons.scss";
+@import "./styles/app.scss";
+@import "./styles/app-loading.scss";
+*{
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--background-default);
+  font-family: var(--font-family-default);
+  margin: 0;
+}
+
+
+app-loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.line-bar{
+    align-items: flex-start;
+  }
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.page-container {
+  position: relative;
+  padding: 0 24px;
+  flex: 1;
+}
+
+.page-action-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-light);
+  font-size: 13px;
+}
+.scroll-table-wrapper {
+  min-height: 168px;
+  height: calc(100vh - 230px);
+  overflow-y: auto;
+  background-color: var(--background-light);
+}
+.table-wrapper {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  td,
+  th {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-light);
+    padding:8px;
+    font-size: 13px;
+  }
+  th {
+    position: sticky;
+    top: -1px;
+    // background-color: var(--th-bg-color);
+    // border-top: 1px solid var(--border-color);
+
+  }
+}
+
+app-header,dashboard-header{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.flex-1{
+  flex: 1;
+}
+.center{
+  text-align: center;
+}
+.right{
+  text-align: right;
+}
+.left{
+  text-align: left;
+}
+.component-tab-nav-bar{
+  .mdc-tab-indicator .mdc-tab-indicator__content--underline{
+    border-top-width: 3px !important;
+  }
+}
+
+app-page-not-available{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 168px;
+}
+
+.group-actions{
+  display: inline-flex;
+  align-items: center;
+  .status-btn{
+    // border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 6px 16px;
+    cursor: pointer;
+    background-color: var(--secondary-button-background)
+  }
+}
+
+app-school-detail-panel, app-campus-detail, app-building{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+app-campus, app-departments{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+app-no-data{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

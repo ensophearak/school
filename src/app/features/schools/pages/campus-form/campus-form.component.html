@@ -1,0 +1,145 @@
+<form class="form-dialog-wrapper" [formGroup]="form">
+    <div class="form-dialog-header">
+        <h2 class="form-dialog-header-title">{{title}}</h2>
+        <div class="flex-1"></div>
+        <a mat-dialog-close class="close-dialog" (click)="dialogRef.close('no')">
+            <i class="material-icons">&#xE14C;</i>
+        </a>
+    </div>
+
+    <mat-dialog-content class="form-dialog-content">
+        <div class="form-group grid-two">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Name (khmer)
+                </mat-label>
+
+                <input matInput placeholder="" formControlName="name" type="text" required autocomplete="off">
+                <mat-error *ngIf="form.controls['name'].hasError('pattern')">
+                    Campus name can only contain letters, numbers, spaces, and these characters: - ! ' "
+                </mat-error>
+                <mat-error *ngIf="form.controls['name'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+
+                <mat-error *ngIf="form.controls['name'].hasError('minlength')">
+                    Campus name must be at least 4 characters long
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Name (English)
+                </mat-label>
+
+                <input matInput placeholder="" formControlName="nameEn" type="text" required autocomplete="off" 
+                (keypress)="onKeypress()">
+                <mat-error *ngIf="form.controls['nameEn'].hasError('pattern')">
+                    Campus name can only contain letters, numbers, spaces, and these characters: - ! ' "
+                </mat-error>
+                <mat-error *ngIf="form.controls['nameEn'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+
+                <mat-error *ngIf="form.controls['nameEn'].hasError('minlength')">
+                    Campus name must be at least 4 characters long
+                </mat-error>
+
+            </mat-form-field>
+
+        </div>
+
+        <div class="id-note">
+            <h3>Campus ID</h3>
+            <p>
+                Your campus's globally unique identifier, used in your Database URL, and more. You cannot change
+                your campus ID after campus creation.
+            </p>
+        </div>
+        <div class="form-group">
+
+            <mat-form-field appearance="outline">
+
+                <div matPrefix style="padding-left:6px;padding-right:6px;">
+                    <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
+                </div>
+                <input matInput placeholder="" formControlName="campusId" type="text" required autocomplete="off">
+                <mat-error *ngIf="form.controls['campusId'].hasError('pattern')">
+                    Campus ID may only contain numbers, letters, and hyphens
+                </mat-error>
+                <mat-error *ngIf="form.controls['campusId'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+
+                <mat-error *ngIf="form.controls['campusId'].hasError('minlength')">
+                    Campus ID must be at least 6 characters long
+                </mat-error>
+                <mat-error *ngIf="form.controls['campusId'].hasError('existValue')">
+                    Campus ID is taken or unavailable
+                </mat-error>
+
+            </mat-form-field>
+        </div>
+
+
+
+        <div class="form-group grid-two">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Short Name (khmer)
+                </mat-label>
+                <input matInput placeholder="" formControlName="shortName" type="text" autocomplete="off">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Short Name (English)
+                </mat-label>
+
+                <input matInput placeholder="" formControlName="shortNameEn" type="text" autocomplete="off">
+
+            </mat-form-field>
+
+        </div>
+
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Campus Number
+                </mat-label>
+                <input matInput placeholder="" formControlName="campusNumber" type="text" required autocomplete="off">
+                <mat-error *ngIf="form.controls['name'].hasError('required')">
+                    {{tran?.strings['requiredField']}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Address
+                </mat-label>
+                <textarea matInput formControlName="address" cdkTextareaAutosize
+                cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="10"></textarea>
+            </mat-form-field>
+        </div>
+
+        <app-loader *ngIf="loading"></app-loader>
+
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="form-dialog-actions">
+        <button mat-button mat-dialog-close class="core-btn secondary">Cancel</button>
+        <button mat-button class="core-btn" [disabled]="store?.process || !form.valid || loading"
+            (click)="onSave(form.value)">
+            <mat-spinner [diameter]="20" *ngIf="store?.process"></mat-spinner>
+            Save
+        </button>
+    </mat-dialog-actions>
+
+</form>

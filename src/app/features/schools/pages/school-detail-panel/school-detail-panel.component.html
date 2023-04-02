@@ -1,0 +1,18 @@
+
+
+<div class="container-wrapper" *mobxAutorun>
+    <div class="container-listing">
+        <nav mat-tab-nav-bar class="component-tab-nav-bar has-border-bottom" [tabPanel]="tabPanel">
+            <a mat-tab-link *ngFor="let link of tabs" [routerLink]="link.route" routerLinkActive #rla="routerLinkActive" (click)="routeClick(link.path)"
+                [active]="rla.isActive"> {{link?.name}}
+            </a>
+        </nav>
+        <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+        <ng-template [cdkPortalOutlet]="currentPage"></ng-template>
+      
+    </div>
+
+    <div class="child-container">
+        <router-outlet *ngIf="store?.selectedSchool"></router-outlet>
+    </div>
+</div>

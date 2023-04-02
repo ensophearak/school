@@ -1,0 +1,99 @@
+<div class="page-wrapper" *mobxAutorun>
+    <ng-container *ngIf="!loader?.isPageNotAvailable">
+        <component-page-header [title]="'Schools'" [process]="false" (onClick)="addNew()"></component-page-header>
+        <div class="page-nav-bar-container">
+            <nav mat-tab-nav-bar class="component-tab-nav-bar" [tabPanel]="tabPanel">
+                <a mat-tab-link *ngFor="let link of tabs" [routerLink]="link.route" routerLinkActive
+                    #rla="routerLinkActive" [active]="rla.isActive"> {{link?.name}}
+                </a>
+            </nav>
+            <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+        </div>
+        <div class="page-container">
+            <div class="page-action-bar">
+                <div style="flex: 1;"></div>
+                <b>Page: {{store?.pagination_clicked_count+1}}</b> - <b> {{store?.totalPage}} of
+                    {{store?.totalCount}}</b>
+                <button mat-icon-button (click)="store?.prevPage()"
+                    [disabled]="store?.disable_prev || !(store?.pagination_clicked_count>0)">
+                    <mat-icon class="mat-18">chevron_left</mat-icon>
+                </button>
+                <button mat-icon-button (click)="store?.nextPage()"
+                    [disabled]="store?.disable_next || (store?.pagination_clicked_count+1 === store?.totalPage)">
+                    <mat-icon class="mat-18">chevron_right</mat-icon>
+                </button>
+            </div>
+
+            <div class="scroll-table-wrapper">
+                <table class="table-wrapper" *ngIf="store?.tableData?.length > 0">
+                    <thead>
+                        <tr>
+                            <th class="center" style="width: 30px;">No.</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Create By</th>
+                            <th>Create Date</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of store?.tableData; let i=index; trackBy: loader?.trackByIdx">
+                            <td class="center">{{item?.index}}</td>
+                            <td>
+                                <div class="open-page"
+                                    [routerLink]="['/'+ auth?.schoolKey + '/schools/listings/detail/' + item?.key + '/campus']"
+                                    routerLinkActive="active">
+                                    <mat-icon class="mat-18">open_in_new</mat-icon>
+                                    <span>{{item?.ID}}</span>
+                                </div>
+                            </td>
+                            <td>{{item?.name}}</td>
+                            <td>{{item?.createdBy?.displayName}}</td>
+                            <td>
+                                {{item?.createdAt?.toDate() | date}}
+                            </td>
+                            <td>
+                                <span class="t-status" [class.active]="item?.status?.key === 1">
+                                    {{item?.status?.text}}
+                                </span>
+                            </td>
+                            <td class="right">
+                                <div class="group-actions">
+
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu action">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+
+                                        <button mat-menu-item (click)="changeSchoolStatus(item)">
+                                            <mat-icon>donut_large</mat-icon>
+                                            <span>{{item?.status?.key === 1?'Set Disable':'Set Active'}}</span>
+                                        </button>
+
+                                        <button mat-menu-item (click)="addNew(item)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Edit</span>
+                                        </button>
+                                        <button mat-menu-item (click)="deleteForever(item)"
+                                            *ngIf="item?.status?.key !== 1">
+                                            <mat-icon>delete</mat-icon>
+                                            <span>Delete</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <app-no-data *ngIf="!loader?.getLoading() && store?.tableData?.length === 0"></app-no-data>
+            </div>
+
+            <app-loader *ngIf="loader?.getLoading()"></app-loader>
+        </div>
+    </ng-container>
+
+    <ng-template [cdkPortalOutlet]="loader?.pageNotAvailable"></ng-template>
+
+</div>

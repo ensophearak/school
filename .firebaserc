@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "espr-news": {
+      "hosting": {
+        "spro": [
+          "espr-news"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "espr-news"
+  }
+}

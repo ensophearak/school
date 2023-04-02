@@ -1,0 +1,13 @@
+<component-page-header [title]="'Company'" [process]="false"></component-page-header>
+<nav mat-tab-nav-bar class="component-tab-nav-bar" [tabPanel]="tabPanel">
+    <a mat-tab-link *ngFor="let link of tabs" [routerLink]="link.route" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive"> {{link?.name}} 
+    </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<div class="component-viewer-main-content">
+    <button mat-button (click)="signOut()">sign out</button>
+    <div class="grid grid-cols-3 gap-4">
+    </div>
+</div>

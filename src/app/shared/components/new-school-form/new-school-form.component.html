@@ -1,0 +1,90 @@
+<div class="school-config-wrapper" *mobxAutorun>
+    <header class="school-config-header">
+        <nav class="nav-header">
+            New School
+        </nav>
+    </header>
+
+    <div class="new-school-form-container">
+
+        <h3 class="form-title">
+            School Management Configuration
+        </h3>
+        <p class="form-sub-title">
+            Please set up your school name before you can start
+        </p>
+
+        <form class="form-section" [formGroup]="form">
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        <!-- {{tran?.strings['enterPassword']}} -->
+                        School name
+                    </mat-label>
+
+                    <input matInput placeholder="" formControlName="schoolName" type="text" required autocomplete="off"
+                        (keypress)="onKeypress()">
+                    <mat-error *ngIf="form.controls['schoolName'].hasError('pattern')">
+                        School name can only contain letters, numbers, spaces, and these characters: - ! ' "
+                    </mat-error>
+                    <mat-error *ngIf="form.controls['schoolName'].hasError('required')">
+                        {{tran?.strings['requiredField']}}
+                    </mat-error>
+
+                    <mat-error *ngIf="form.controls['schoolName'].hasError('minlength')">
+                        School name must be at least 4 characters long
+                    </mat-error>
+
+                    <mat-error *ngIf="form.controls['schoolName'].hasError('existValue')">
+                        School name is taken or unavailable
+                    </mat-error>
+
+                </mat-form-field>
+            </div>
+
+            <div class="id-note">
+                <h3>School ID</h3>
+                <p>
+                    Your school's globally unique identifier, used in your Database URL, and more. You cannot change
+                    your school ID after school creation.
+                </p>
+            </div>
+            <div class="form-group">
+
+                <mat-form-field appearance="outline">
+                    <!-- <mat-label>
+                        School ID
+                    </mat-label> -->
+                    <div matPrefix style="padding-left:6px;padding-right:6px;">
+                        <!-- <mat-icon matPrefix>search</mat-icon> -->
+                        <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
+                    </div>
+                    <input matInput placeholder="" formControlName="schoolID" type="text" required autocomplete="off">
+                    <mat-error *ngIf="form.controls['schoolID'].hasError('pattern')">
+                        School ID may only contain numbers, letters, and hyphens
+                    </mat-error>
+                    <mat-error *ngIf="form.controls['schoolID'].hasError('required')">
+                        {{tran?.strings['requiredField']}}
+                    </mat-error>
+
+                    <mat-error *ngIf="form.controls['schoolID'].hasError('minlength')">
+                        School ID must be at least 6 characters long
+                    </mat-error>
+                    <mat-error *ngIf="form.controls['schoolID'].hasError('existValue')">
+                        School ID is taken or unavailable
+                    </mat-error>
+
+                </mat-form-field>
+            </div>
+
+
+
+            <button mat-button class="core-btn" style="width: 100%;"
+                [disabled]="auth?.process || !form.valid || loading" (click)="onSave(form.value)">
+                <mat-spinner [diameter]="20" *ngIf="auth?.process"></mat-spinner>
+                <!-- {{tran?.strings['signIn']}} -->
+                Continue
+            </button>
+        </form>
+    </div>
+</div>

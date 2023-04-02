@@ -1,0 +1,65 @@
+<div class="container-wrapper" *mobxAutorun>
+
+    <ng-container *ngIf="id; else notSelectedCampus">
+
+        <div class="container-listing">
+            <div class="navigation-list-container">
+
+                <div class="navigation-lists">
+                    <ng-container *ngIf="!store?.loading && store?.data.length > 0">
+                        <ng-container *ngFor="let item of store?.data; let i=index">
+                            <div class="navigation-list-item"
+                                [class.active]="item.key === store?.selectedBuilding?.key">
+
+                                <div class="list-item-info" (click)="onDetail(item)">
+                                    <h3> {{item?.nameEn}}</h3>
+                                    <p>
+                                        {{item?.name}}
+                                    </p>
+                                </div>
+
+                                <div class="list-item-action">
+                                    <div class="dp-action-menu" [matMenuTriggerFor]="menu" aria-label="Action menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </div>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="addNew(item)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Edit</span>
+                                        </button>
+                                        <button mat-menu-item>
+                                            <mat-icon>delete</mat-icon>
+                                            <span>Delete</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+                            <div class="navigation-list-item-divider"></div>
+                        </ng-container>
+                    </ng-container>
+
+                    <ng-container *ngIf="!store?.loading && store?.data.length === 0">
+                        <app-no-data></app-no-data>
+                    </ng-container>
+
+                    <ngx-skeleton-loader *ngIf="store?.loading" count="25" appearance="line"
+                        animation="pulse"></ngx-skeleton-loader>
+                </div>
+                <button mat-button (click)="addNew()" class="core-btn">
+                    Add new building
+                </button>
+
+            </div>
+        </div>
+
+        <div class="child-container">
+            <router-outlet *ngIf="campusStore?.selectedCampus"></router-outlet>
+        </div>
+
+    </ng-container>
+    <ng-template #notSelectedCampus>
+        <p>Please select building to show room</p>
+    </ng-template>
+
+
+</div>

@@ -1,0 +1,64 @@
+<header>
+    <div class="header-wrap">
+        <div class="h-lb">
+            <div class="site-branding" [routerLink]="['/']">
+                <img style="height:40px; margin-right: 6px;" [src]="auth?.school?.logo" [alt]="auth?.school?.name"
+                    *ngIf="auth?.school?.logo">
+                <img style="height:40px;  margin-right: 6px;" src="../../../../assets/logo/logo.png" alt="logo"
+                    *ngIf="!auth?.school?.logo">
+                {{auth?.school?.name}}
+            </div>
+        </div>
+        <div class="h-cb">
+        </div>
+        <div class="h-rb">
+
+            <a class="h-nav-menu-item" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <avatar [userKey]="auth?.user?.key"></avatar>
+            </a>
+            <mat-menu #menu="matMenu">
+                <mat-progress-bar style="position: absolute; top: 0;" mode="determinate" *ngIf="auth?.process"
+                    [value]="fss?.uploadPercent | async">
+                </mat-progress-bar>
+
+                <div class="" style="min-width: auto; width: 360px;    padding: 40px 0;"
+                    (click)="$event.stopPropagation();">
+
+                    <div class="welcome-user" style="text-align: center;">
+                        <div class="user-avatar" style="height: 86px; width: 86px; margin: 0 auto;">
+                            <avatar [userKey]="auth?.user?.key"></avatar>
+                            <div (click)="fileInput.click()" class="change-profile">
+                                <mat-icon class="mat-18">photo_camera</mat-icon>
+                            </div>
+                        </div>
+
+                        <input #fileInput type="file" multiple accept='image/*' (change)="onSelectedFile($event)"
+                            style="display:none;" />
+
+                        <div class="wellcome-text k-wellcome-text" style="margin-top: 10px;">
+                            <strong>{{auth?.user?.displayName}}</strong>
+                        </div>
+
+                        <div class="dp-menu-item pwd-change" (click)="changePassword()">
+                            <mat-icon>verified_user</mat-icon>
+                            <div class="dp-menu-item-text" style="padding-left: 10px;">
+                                Change password
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="dp-menu-item menu-item-logout">
+                        <div class="dp-menu-item-text" (click)="signOut()">
+                            <span>
+                                Sign Out
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-menu>
+
+        </div>
+    </div>
+</header>

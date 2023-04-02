@@ -1,0 +1,100 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$custom-typography: mat.define-typography-config(
+  $font-family: var(--font-family-default),
+  // $headline-5: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  // $headline-4: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  // $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  // $headline-2: mat.define-typography-level(34px, 40px, 400),
+  // $headline-1: mat.define-typography-level(20px, 27px, 500),
+  // $subtitle-1: mat.define-typography-level(15px, 17px, 400),
+  // $subtitle-2: mat.define-typography-level(16px, 21px, 500),
+  $body-1: mat.define-typography-level(14px, 21px, 400),
+  // $body-2: mat.define-typography-level(15px, 25px, 500),
+  // $caption: mat.define-typography-level(14px, 21px, 400),
+  $button: mat.define-typography-level(14px, 21px, 500),
+);
+
+
+$md-mycolor: (
+  50: #e3effd,
+  100: #bad6fb,
+  200: #8cbbf9,
+  300: #5da0f6,
+  400: #3b8bf4,
+  500: #1877f2,
+  600: #156ff0,
+  700: #1164ee,
+  800: #0e5aec,
+  900: #0847e8,
+  A100: #ffffff,
+  A200: #dee6ff,
+  A400: #abbeff,
+  A700: #91abff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$my-primary: mat.define-palette($md-mycolor);
+$my-accent: mat.define-palette($md-mycolor, A100, A200, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+    typography: $custom-typography,
+  )
+);
+@include mat.all-component-themes($my-theme);
+@include mat.button-typography($custom-typography);
+
+
+.mat-tab-header {
+  background-color: var(--background-light);
+}
+
+.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: var(--color-primary-light) !important;
+}
+
+.mat-mdc-dialog-content{
+  max-height: unset !important;
+}
+
+.mat-mdc-menu-panel.mat-mdc-menu-panel{
+  max-width: unset !important;
+}
+.mat-mdc-menu-content{
+  padding: 0 !important;
+}
+
+.mat-mdc-menu-item .mat-icon{
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
+}
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: var(--mdc-dialog-container-shape, var(--mdc-shape-medium, 8px)) !important;
+}
+.mdc-dialog__actions{
+  border-top: 1px solid var(--media-inner-border) !important;
+  padding: 16px !important;
+}

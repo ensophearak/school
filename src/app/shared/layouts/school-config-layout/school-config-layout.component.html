@@ -1,0 +1,9 @@
+<div class="p-wrapper" *mobxAutorun>
+    <dashboard-header></dashboard-header>
+    <dashboard-sidebar [sideBarMenu]="SchoolConfigMenu" [hasSubMenu]="false"></dashboard-sidebar>
+    <main id="main" class="main" role="main" style="max-height: calc(100vh - 68px); background-color: var(--background-primary); overflow-y: auto;    overflow-y: auto;">
+        <router-outlet *ngIf="auth?.profile | validSchool:auth?.school"></router-outlet>
+        <app-school-disabled *ngIf="!(auth?.profile | validSchool:auth?.school) && !auth?.loading"></app-school-disabled>
+        <app-loader *ngIf="auth?.loading" [type]="'line-bar'" class="line-bar"></app-loader>
+    </main>
+</div>

@@ -1,0 +1,144 @@
+<header>
+    <div class="header-wrap">
+        <div class="h-lb">
+            <button (click)="toggleSidebar()" class="nav-btn">
+                <mat-icon class="mat-18">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
+                    </svg>
+                </mat-icon>
+            </button>
+            <div class="site-branding" [routerLink]="['/']">
+                <!-- <img style="height:40px;" src="https://angular.io/assets/images/logos/angular/angular.svg" alt=""> -->
+                <!-- Angular -->
+            </div>
+        </div>
+        <div class="h-cb">
+            <!-- <form class="sgb-form" [formGroup]="form" cdkMonitorSubtreeFocus>
+                <div class="sgb-fom-content">
+                
+                    <input type="text" #searchInp class="search-inputtext" placeholder="Search"
+                        formControlName="search">
+                    <button *ngIf="form.controls['search'].value" mat-icon-button aria-label="Clear"
+                        (click)="clear()">
+                        <mat-icon>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                            </svg>
+                        </mat-icon>
+                    </button>
+                    <span *ngIf="form.controls['search'].value"
+                        style="height:18px;border-left: 1px solid #dfe1e5;"></span>
+
+                    <button mat-icon-button aria-label="Search" class="sgb-btn">
+                        <mat-icon>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9-9-4.032-9-9 4.032-9 9-9zm0 16c3.867 0 7-3.133 7-7 0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7zm8.485.071l2.829 2.828-1.415 1.415-2.828-2.829 1.414-1.414z" />
+                            </svg>
+                        </mat-icon>
+                    </button>
+
+                </div>
+         
+                <div class="sc-auto-complete-wrapper">
+                    <button class="sc-auto-complete-item"  *ngFor="let item of [1,1,1,1,1,1,1,1,1]"  (click)="alert()">
+                        <mat-icon>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9-9-4.032-9-9 4.032-9 9-9zm0 16c3.867 0 7-3.133 7-7 0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7zm8.485.071l2.829 2.828-1.415 1.415-2.828-2.829 1.414-1.414z" />
+                            </svg>
+                        </mat-icon>
+                        <span>
+                            Lorem ipsum dolor sit amet.
+                        </span>
+                    </button>
+                </div>
+            </form> -->
+
+        </div>
+        <div class="h-rb">
+
+            <button (click)="themeSwitcher()" class="nav-btn">
+                <mat-icon class="mat-18">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm2-1.645A3.502 3.502 0 0 0 12 6.5a3.501 3.501 0 0 0-3.433 2.813l1.962.393A1.5 1.5 0 1 1 12 11.5a1 1 0 0 0-1 1V14h2v-.645z" />
+                    </svg>
+                </mat-icon>
+            </button>
+            <button (click)="null" class="nav-btn">
+                <mat-icon class="mat-18">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M7 11.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0 10a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10-10a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0 10a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" />
+                    </svg>
+                </mat-icon>
+            </button>
+            <button (click)="null" class="nav-btn">
+                <mat-icon class="mat-18">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M2.132 13.63a9.942 9.942 0 0 1 0-3.26c1.102.026 2.092-.502 2.477-1.431.385-.93.058-2.004-.74-2.763a9.942 9.942 0 0 1 2.306-2.307c.76.798 1.834 1.125 2.764.74.93-.385 1.457-1.376 1.43-2.477a9.942 9.942 0 0 1 3.262 0c-.027 1.102.501 2.092 1.43 2.477.93.385 2.004.058 2.763-.74a9.942 9.942 0 0 1 2.307 2.306c-.798.76-1.125 1.834-.74 2.764.385.93 1.376 1.457 2.477 1.43a9.942 9.942 0 0 1 0 3.262c-1.102-.027-2.092.501-2.477 1.43-.385.93-.058 2.004.74 2.763a9.942 9.942 0 0 1-2.306 2.307c-.76-.798-1.834-1.125-2.764-.74-.93.385-1.457 1.376-1.43 2.477a9.942 9.942 0 0 1-3.262 0c.027-1.102-.501-2.092-1.43-2.477-.93-.385-2.004-.058-2.763.74a9.942 9.942 0 0 1-2.307-2.306c.798-.76 1.125-1.834.74-2.764-.385-.93-1.376-1.457-2.477-1.43zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                </mat-icon>
+            </button>
+
+
+            <a class="h-nav-menu-item" [matMenuTriggerFor]="menu" aria-label="profile" style="margin-left: 8px;">
+                <avatar [userKey]="auth?.user?.key"></avatar>
+            </a>
+
+            <mat-menu #menu="matMenu">
+                <mat-progress-bar style="position: absolute; top: 0;" mode="determinate" *ngIf="auth?.process"
+                    [value]="fss?.uploadPercent | async">
+                </mat-progress-bar>
+
+                <div class="" style="min-width: auto; width: 360px;    padding: 40px 0;"
+                    (click)="$event.stopPropagation();">
+
+                    <div class="welcome-user" style="text-align: center;">
+                        <div class="user-avatar" style="height: 86px; width: 86px; margin: 0 auto;">
+                            <avatar [userKey]="auth?.user?.key"></avatar>
+                            <div (click)="fileInput.click()" class="change-profile">
+                                <mat-icon class="mat-18">photo_camera</mat-icon>
+                            </div>
+                        </div>
+
+                        <input #fileInput type="file" multiple accept='image/*' (change)="onSelectedFile($event)"
+                            style="display:none;" />
+
+                        <div class="wellcome-text k-wellcome-text" style="margin-top: 10px;">
+                            <strong>{{auth?.user?.displayName}}</strong>
+                        </div>
+
+                        <div class="dp-menu-item pwd-change" (click)="changePassword()">
+                            <mat-icon>verified_user</mat-icon>
+                            <div class="dp-menu-item-text" style="padding-left: 10px;">
+                                Change password
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="dp-menu-item menu-item-logout">
+                        <div class="dp-menu-item-text" (click)="signOut()">
+                            <span>
+                                Sign Out
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-menu>
+        </div>
+    </div>
+</header>

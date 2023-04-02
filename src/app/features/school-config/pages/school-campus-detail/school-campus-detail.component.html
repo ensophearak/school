@@ -1,0 +1,32 @@
+<div class="listing-view">
+    <div class="listing-view-lists">
+        <ng-container *ngFor="let item of buildingStore?.data; let i= index;">
+            <div class="listing-view-item">
+                <div class="list-item-info" (click)="onDetail(item)">
+                    <h3> {{item?.nameEn}}</h3>
+                    <p>
+                        {{item?.name}}
+                    </p>
+                </div>
+
+                <div class="list-item-action">
+                    <div class="dp-action-menu" [matMenuTriggerFor]="menu" aria-label="Action menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </div>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="addNew(item)">
+                            <mat-icon>edit</mat-icon>
+                            <span>Edit</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>delete</mat-icon>
+                            <span>Delete</span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="list-item-divider"></div>
+
+        </ng-container>
+    </div>
+</div>
